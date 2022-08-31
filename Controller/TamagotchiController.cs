@@ -109,39 +109,45 @@ namespace Tamagotchi
             int indiceMascote;
 
             indiceMascote = Mensagens.MenuConsultarMascotes(MascotesAdotados);
-            while (opcaoUsuario != "4")
-            { 
-                opcaoUsuario = Mensagens.InteragirComMascotes(MascotesAdotados[indiceMascote]);
-
-                switch (opcaoUsuario)
+            if (indiceMascote < 0)
+            {
+                MenuAdocao();
+            }
+            else
+            {
+                while (opcaoUsuario != "4")
                 {
-                    case "1":
-                        Mensagens.DetalhesmascoteAdotado(MascotesAdotados[indiceMascote]);
-                        break;
-                    case "2":
-                        MascotesAdotados[indiceMascote].AlimentarMascote();
-                        Mensagens.AlimentarMascote();
+                    opcaoUsuario = Mensagens.InteragirComMascotes(MascotesAdotados[indiceMascote]);
 
-                        if (!MascotesAdotados[indiceMascote].SaudeMascote())
-                            Mensagens.GameOver(MascotesAdotados[indiceMascote]);
+                    switch (opcaoUsuario)
+                    {
+                        case "1":
+                            Mensagens.DetalhesmascoteAdotado(MascotesAdotados[indiceMascote]);
+                            break;
+                        case "2":
+                            MascotesAdotados[indiceMascote].AlimentarMascote();
+                            Mensagens.AlimentarMascote();
 
-                        break;
-                    case "3":
-                        MascotesAdotados[indiceMascote].BrincarMascote();
-                        Mensagens.BrincarMascote();
-                        if (!MascotesAdotados[indiceMascote].SaudeMascote())
-                        {
-                            Mensagens.GameOver(MascotesAdotados[indiceMascote]);
-                        }
-                        break;
-                    case "4":
-                        return;
-                    default:
-                        Console.WriteLine("Opção Inválida");
-                        break;
+                            if (!MascotesAdotados[indiceMascote].SaudeMascote())
+                                Mensagens.GameOver(MascotesAdotados[indiceMascote]);
+
+                            break;
+                        case "3":
+                            MascotesAdotados[indiceMascote].BrincarMascote();
+                            Mensagens.BrincarMascote();
+                            if (!MascotesAdotados[indiceMascote].SaudeMascote())
+                            {
+                                Mensagens.GameOver(MascotesAdotados[indiceMascote]);
+                            }
+                            break;
+                        case "4":
+                            return;
+                        default:
+                            Console.WriteLine("Opção Inválida");
+                            break;
+                    }
                 }
             }
-
         }
     }
 }

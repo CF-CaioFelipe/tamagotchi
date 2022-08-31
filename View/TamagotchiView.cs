@@ -24,34 +24,34 @@ namespace Tamagotchi
         #     #    #  #    #  #    #  #    #  #    #    #    #    #  #    #  # 
         #     #    #  #    #  #    #   ####    ####     #     ####   #    #  #");
 
-        Console.WriteLine("\n\nQual é seu nome?");
+        Console.Write("\n\nQual é seu nome? ");
         NomeJogador = Console.ReadLine().ToUpper();
     }
 
     public void MenuInicial()
     {
         Console.WriteLine("\n\n--------------------------- MENU ---------------------------");
-        Console.WriteLine($"{NomeJogador} Você deseja:");
         Console.WriteLine("1 - Adotar um mascote virtual");
         Console.WriteLine("2 - Ver seus mascotes");
         Console.WriteLine("3 - Sair");
+        Console.Write($"{NomeJogador} Você deseja: ");
     }
     public string MenuAdocao()
     {
         Console.WriteLine("\n--------------------- ADOTAR UM MASCOTE ---------------------");
-        Console.WriteLine($"{NomeJogador} Escolha uma espécie:");
         Console.WriteLine("BULBASAUR");
         Console.WriteLine("IVYSAUR");
+        Console.Write($"{NomeJogador} Escolha uma espécie: ");
 
         return Console.ReadLine().ToUpper();
     }
     public string DesejaSaberMais(string especie)
     {
         Console.WriteLine("\n-------------------------------------------------------------");
-        Console.WriteLine($"{NomeJogador} VOCÊ DESEJA:");
         Console.WriteLine($"1 - SABER MAIS SOBRE O {especie}");
         Console.WriteLine($"2 - ADOTAR {especie}");
         Console.WriteLine($"3 - VOLTAR");
+        Console.Write($"{NomeJogador} VOCÊ DESEJA: ");
 
         return Console.ReadLine().ToUpper();
     }
@@ -100,6 +100,7 @@ namespace Tamagotchi
 
     public void SucessoAdocao(string especie)
     {
+        Console.WriteLine("\n-------------------------------------------------------------");
         Console.WriteLine($"{NomeJogador} MASCOTE ADOTADO COM SUCESSO, O OVO ESTÁ CHOCANDO: ");
 
         Console.WriteLine(@"
@@ -116,23 +117,32 @@ namespace Tamagotchi
     {
         Console.WriteLine("\n-------------------------------------------------------------");
         Console.WriteLine($"Você possui {mascotes.Count} mascote adotados.");
-        for (int indiceMascote = 0; indiceMascote < mascotes.Count; indiceMascote++)
+        int escolha = 0;
+        if (mascotes.Count == 0)
         {
-            Console.WriteLine($"{indiceMascote} - {mascotes[indiceMascote].Nome.ToUpper()}");
+            Console.WriteLine("Você ainda não possui nenhum bixano");
+                escolha = -1;
         }
-
-        Console.WriteLine($"Qual mascote você deseja interagir?");
-        return Convert.ToInt32(Console.ReadLine());
+        else
+        {
+            for (int indiceMascote = 0; indiceMascote < mascotes.Count; indiceMascote++)
+            {
+                Console.WriteLine($"{indiceMascote} - {mascotes[indiceMascote].Nome.ToUpper()}");
+            }
+            Console.Write($"Qual mascote você deseja interagir? ");
+            escolha = Convert.ToInt32(Console.ReadLine());
+        }
+        return escolha;
     }
 
     public string InteragirComMascotes(Mascote mascote)
     {
         Console.WriteLine("\n-------------------------------------------------------------");
-        Console.WriteLine($"{NomeJogador} VOCÊ DESEJA:");
         Console.WriteLine($"1 - SABER COMO {mascote.Nome.ToUpper()} ESTÁ");
         Console.WriteLine($"2 - ALIMENTAR O {mascote.Nome.ToUpper()}");
         Console.WriteLine($"3 - BRINCAR COM {mascote.Nome.ToUpper()} ");
         Console.WriteLine($"4 - VOLTAR");
+        Console.Write($"{NomeJogador} VOCÊ DESEJA: ");
 
         return Console.ReadLine().ToUpper();
     }
@@ -154,7 +164,7 @@ namespace Tamagotchi
     public void GameOver(Mascote mascote)
     {
         Console.WriteLine("\n-------------------------------------------------------------");
-        Console.WriteLine("O mascote morreu de " + (mascote.Humor > 0 ? "fome" : "tristeza"));
+        Console.WriteLine("O mascote morreu de " + (mascote.Humor > 0 || mascote.Alimentacao > 0 ? "fome" : "tristeza"));
 
         Console.WriteLine(@"
               #####      #     #     #  #######      #######  #     #  #######  ######  

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oQl/t7NZ1iLvp+h2J57JNtrE/9k0+W1VRPfRwn/Wx5qwCJnTXOAOOaBXQC7vYd6gKqQcHu8jbf4UHtc0v1tbgw==",
+  "dgSpecHash": "7ZsdvwqkIsNaO79mrYp/RySqyTyg2yTDKMJgkvcSfdUUy1GuRthKDlB/VHbihr4O6be7NG+u7MTZQooAt9C/BQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Reals\\Desktop\\7DaysOfCodeCSharpBackend\\Tamagotchi.csproj",
+  "projectFilePath": "C:\\Users\\Reals\\Desktop\\tamagotchi\\Tamagotchi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Reals\\.nuget\\packages\\automapper\\3.1.1\\automapper.3.1.1.nupkg.sha512",
     "C:\\Users\\Reals\\.nuget\\packages\\restsharp\\106.15.0\\restsharp.106.15.0.nupkg.sha512"

@@ -98,11 +98,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Reals\\Desktop\\7DaysOfCodeCSharpBackend\\Tamagotchi.csproj",
+      "projectUniqueName": "C:\\Users\\Reals\\Desktop\\tamagotchi\\Tamagotchi.csproj",
       "projectName": "Tamagotchi",
-      "projectPath": "C:\\Users\\Reals\\Desktop\\7DaysOfCodeCSharpBackend\\Tamagotchi.csproj",
+      "projectPath": "C:\\Users\\Reals\\Desktop\\tamagotchi\\Tamagotchi.csproj",
       "packagesPath": "C:\\Users\\Reals\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Reals\\Desktop\\7DaysOfCodeCSharpBackend\\obj\\",
+      "outputPath": "C:\\Users\\Reals\\Desktop\\tamagotchi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Reals\\AppData\\Roaming\\NuGet\\NuGet.Config",
